@@ -23,7 +23,8 @@ export class PostgresLogDatasource implements LogDatasource {
     
     const newLog = await prismaClient.logModel.create({
       data: {
-        ...log,       
+        message: log.message,
+        origin: log.origin,        
         level: level,
       }
     });
